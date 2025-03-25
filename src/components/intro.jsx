@@ -1,17 +1,6 @@
 import { useState } from 'react'
 import useToggle from './toggle.jsx'
 
-function ToggleComponent() {
-    const [isVisible, toggleVisibility] = useToggle()
-  
-    return (
-      <div>
-        <button onClick={toggleVisibility}>Toggle Visibility</button>
-        {isVisible && <div>This component is visible.</div>}
-      </div>
-    )
-}
-
 function Intro(){
     const [isVisible, toggleVisibility] = useToggle();
 
