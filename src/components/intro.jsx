@@ -21,10 +21,12 @@ function Intro(){
     return (
         <>
             <>
-                <h1>{name}</h1>
+                <div className='top-section'>
+                    <h1>{name}</h1>
+                    {!isVisible && <button onClick={toggleVisibility} className='edit-button'>Edit</button>}
+                </div>
                 <div>{phone} | {email} | {linkedin} | {location}</div>
-                <p>{presentation}</p>
-                {!isVisible && <button onClick={toggleVisibility}>Edit</button>}
+                <p className='presentation'>{presentation}</p>
             </>
             {isVisible && <>
                 <label>
