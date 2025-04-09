@@ -8,7 +8,8 @@ function EducationForm({ education, onChange, onSave }) {
 
     return (
         <div className='form'>
-            <label>
+            <div>
+                <label>
                     School Name
                     <input
                     type="text"
@@ -16,7 +17,6 @@ function EducationForm({ education, onChange, onSave }) {
                     onChange={handleChange('schoolName')}
                     />
                 </label>
-                
                 <label>
                     Degree
                     <input
@@ -25,6 +25,8 @@ function EducationForm({ education, onChange, onSave }) {
                     onChange={handleChange('degree')}
                     />
                 </label>
+            </div>
+            <div>
                 <label>
                     Location
                     <input
@@ -41,7 +43,9 @@ function EducationForm({ education, onChange, onSave }) {
                     onChange={handleChange('dateRange')}
                     />
                 </label>
-                <button onClick={onSave}>Save</button>
+            </div>
+            
+            <button onClick={onSave}>Save</button>
         </div>
     )
 }
@@ -81,10 +85,12 @@ function Education(){
 
     return (
             <>
-                <div clasName="section-header">
-                    <h2 className="section-header">Education</h2>
-                    {!isVisible && <button onClick={toggleVisibility}>Edit</button>}
-                    <button onClick={addNewEducation}>Add Education</button>
+                <div className="section-header">
+                    <h2>Education</h2>
+                    <div>
+                        {!isVisible && <button onClick={toggleVisibility}>Edit</button>}
+                        <button className='add-button' onClick={addNewEducation}>+</button>
+                    </div>
                 </div>
 
                 {educations.map((educ, index) => (
@@ -96,7 +102,7 @@ function Education(){
                         <div className='degree'>{educ.degree}</div>
                         <div className='location'>{educ.location}</div>
                         {isVisible && (
-                            <button onClick={() => setCurrentEditIndex(index)}>Edit</button>
+                            <button className='sub-edit' onClick={() => setCurrentEditIndex(index)}>Edit</button>
                         )}
                     </div>
                 ))}

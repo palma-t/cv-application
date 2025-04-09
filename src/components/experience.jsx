@@ -8,7 +8,8 @@ function ExperienceForm({ experience, onChange, onSave }) {
 
     return (
         <div className='form'>
-            <label>
+            <div>
+                <label>
                     Job Name
                     <input
                     type="text"
@@ -16,7 +17,6 @@ function ExperienceForm({ experience, onChange, onSave }) {
                     onChange={handleChange('job')}
                     />
                 </label>
-                
                 <label>
                     Company
                     <input
@@ -25,6 +25,8 @@ function ExperienceForm({ experience, onChange, onSave }) {
                     onChange={handleChange('company')}
                     />
                 </label>
+            </div>
+            <div>
                 <label>
                     Missions
                     <textarea
@@ -40,6 +42,8 @@ function ExperienceForm({ experience, onChange, onSave }) {
                     onChange={handleChange('location')}
                     />
                 </label>
+            </div>
+            <div>
                 <label>
                     Date
                     <input
@@ -49,6 +53,7 @@ function ExperienceForm({ experience, onChange, onSave }) {
                     />
                 </label>
                 <button onClick={onSave}>Save</button>
+            </div>
         </div>
     )
 }
@@ -90,11 +95,12 @@ function Experience(){
     
     return (
         <>
-            <>
                 <div className="section-header">
-                    <h2 className="section-header">Experience</h2>
-                    {!isVisible && <button onClick={toggleVisibility}>Edit</button>}
-                    <button onClick={addNewExperience}>Add Experience</button>
+                    <h2>Experience</h2>
+                    <div>
+                        {!isVisible && <button onClick={toggleVisibility}>Edit</button>}
+                        <button className='add-button' onClick={addNewExperience}>+</button>
+                    </div>
                 </div>
 
                 {experiences.map((exp, index) => (
@@ -107,7 +113,7 @@ function Experience(){
                         <div className='location'>{exp.location}</div>
                         <div>{exp.mission}</div>
                         {isVisible && (
-                            <button onClick={() => setCurrentEditIndex(index)}>Edit</button>
+                            <button className='sub-edit' onClick={() => setCurrentEditIndex(index)}>Edit</button>
                         )}
                     </div>
                 ))}
@@ -121,8 +127,6 @@ function Experience(){
                         onSave={handleSave}
                     />
                 )}
-            </>
-            
         </> 
     )
 
